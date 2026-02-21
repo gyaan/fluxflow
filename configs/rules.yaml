@@ -1,0 +1,50 @@
+version: v1
+
+engine:
+  event_workers: 32
+  action_workers: 16
+  queue_depth: 10000
+  event_timeout_ms: 5000
+  fail_open: true
+
+scenarios:
+  - id: sc_high_value_food
+    description: "Award bonus points for food purchases over 1000"
+    enabled: true
+    event_types: [transaction]
+    sources: [pos-system, mobile-app]
+    children:
+      - condition:
+          id: cond_is_food
+          expression: 'payload.category == "food"'
+          children:
+            - condition:
+                id: cond_amount_gt_1000
+                expression: "payload.amount > 1000"
+                children:
+                  - action:
+                      id: act_bonus_points
+                      type: reward_points
+                      params:
+                        operation: award
+                        points_formula: "payload.amount * 0.05"
+                        reason: "High-value food purchase bonus"
+                        expiry_days: 90
+
+  - id: sc_first_login
+    description: "Welcome points on first login"
+    enabled: true
+    event_types: [login]
+    children:
+      - condition:
+          id: cond_first_login
+          expression: "payload.is_first_login == true"
+          children:
+            - action:
+                id: act_welcome_points
+                type: reward_points
+                params:
+                  operation: award
+                  points: 100
+                  reason: "Welcome bonus"
+                  expiry_days: 365

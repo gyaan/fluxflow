@@ -1,0 +1,20 @@
+IFTTT 
+
+Requirement 
+Implement IFTTT rule for the loyalty programme
+Implement in below way 
+A event happen (transactions or some other action in other system)
+Event consumed by the rule engine 
+Evaluate the scenario if its match then trigger multiple actions
+Use DAG where
+Each node is a scenario, then condition and then actions. 
+ There can be multiple levels for scenario , condition but leaf node should be the actions. 
+Should be scalable 
+Rewards can be one of the use cases but should be configurable and scalable for the various use cases. 
+Low memory footprints , use Golang to build this 
+Config driven 
+Highly concurrent , handling over a million events in a day.  Or > 1k events per second. 
+ Easy to integrate in any of the software architecture or different companies, this should be platform 
+Resources : https://en.wikipedia.org/wiki/IFTTT
+DAG : https://en.wikipedia.org/wiki/Directed_acyclic_graph 
+
