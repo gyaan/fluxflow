@@ -9,10 +9,10 @@ type RuleConfig struct {
 
 // EngineConf holds tunable concurrency settings.
 type EngineConf struct {
-	EventWorkers   int `yaml:"event_workers"`
-	ActionWorkers  int `yaml:"action_workers"`
-	QueueDepth     int `yaml:"queue_depth"`
-	EventTimeoutMs int `yaml:"event_timeout_ms"`
+	EventWorkers   int  `yaml:"event_workers"`
+	ActionWorkers  int  `yaml:"action_workers"`
+	QueueDepth     int  `yaml:"queue_depth"`
+	EventTimeoutMs int  `yaml:"event_timeout_ms"`
 	FailOpen       bool `yaml:"fail_open"`
 }
 

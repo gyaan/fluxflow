@@ -5,7 +5,7 @@ import "time"
 // Event is the canonical input model for all incoming events.
 type Event struct {
 	ID         string                 `json:"id"`
-	Type       string                 `json:"type"`        // "transaction", "login", etc.
+	Type       string                 `json:"type"` // "transaction", "login", etc.
 	OccurredAt time.Time              `json:"occurred_at"`
 	ReceivedAt time.Time              `json:"-"`
 	Source     string                 `json:"source"`

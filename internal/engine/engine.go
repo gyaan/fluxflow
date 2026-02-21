@@ -15,11 +15,11 @@ import (
 
 // EventResult is the outcome of processing a single event.
 type EventResult struct {
-	EventID          string                `json:"event_id"`
-	DurationMs       int64                 `json:"duration_ms"`
-	ScenariosMatched []string              `json:"scenarios_matched"`
+	EventID          string                 `json:"event_id"`
+	DurationMs       int64                  `json:"duration_ms"`
+	ScenariosMatched []string               `json:"scenarios_matched"`
 	ActionsExecuted  []*action.ActionResult `json:"actions_executed"`
-	Error            string                `json:"error,omitempty"`
+	Error            string                 `json:"error,omitempty"`
 }
 
 // Engine processes events through the DAG.
@@ -37,11 +37,9 @@ type eventWork struct {
 }
 
 type actionWork struct {
-	ctx      context.Context
 	match    dag.ActionMatch
 	evalCtx  *dag.EvalContext
 	registry *action.Registry
-	resultC  chan *action.ActionResult
 }
 
 // New creates an Engine using conf and starts worker pools.

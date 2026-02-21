@@ -7,12 +7,13 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+
 	"github.com/gyaneshwarpardhi/ifttt/internal/config"
 	"github.com/gyaneshwarpardhi/ifttt/internal/dag"
 	"github.com/gyaneshwarpardhi/ifttt/internal/engine"
 	"github.com/gyaneshwarpardhi/ifttt/internal/event"
 	"github.com/gyaneshwarpardhi/ifttt/internal/metrics"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 const maxBatchSize = 100
@@ -141,8 +142,8 @@ func (h *Handler) readyz(w http.ResponseWriter, r *http.Request) {
 	metrics.QueueUtilization.Set(util)
 	if util > 0.8 {
 		writeJSON(w, http.StatusServiceUnavailable, map[string]interface{}{
-			"status":             "overloaded",
-			"queue_utilization":  util,
+			"status":            "overloaded",
+			"queue_utilization": util,
 		})
 		return
 	}

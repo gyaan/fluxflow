@@ -112,8 +112,8 @@ func NewScenarioNode(id string, eventTypes, sources []string) *ScenarioNode {
 	return &ScenarioNode{id: id, eventTypes: et, sources: src}
 }
 
-func (n *ScenarioNode) ID() string       { return n.id }
-func (n *ScenarioNode) Type() NodeType   { return NodeTypeScenario }
+func (n *ScenarioNode) ID() string     { return n.id }
+func (n *ScenarioNode) Type() NodeType { return NodeTypeScenario }
 
 func (n *ScenarioNode) Evaluate(ctx *EvalContext) (bool, error) {
 	if _, ok := n.eventTypes[strings.ToLower(ctx.Event.Type)]; !ok {
@@ -164,9 +164,9 @@ func NewActionNode(id, actionType string, params map[string]interface{}) *Action
 	return &ActionNode{id: id, actionType: actionType, params: params}
 }
 
-func (n *ActionNode) ID() string         { return n.id }
-func (n *ActionNode) Type() NodeType     { return NodeTypeAction }
-func (n *ActionNode) ActionType() string { return n.actionType }
+func (n *ActionNode) ID() string                     { return n.id }
+func (n *ActionNode) Type() NodeType                 { return NodeTypeAction }
+func (n *ActionNode) ActionType() string             { return n.actionType }
 func (n *ActionNode) Params() map[string]interface{} { return n.params }
 
 func (n *ActionNode) Evaluate(ctx *EvalContext) (bool, error) {

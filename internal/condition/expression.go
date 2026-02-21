@@ -110,7 +110,7 @@ func tokenize(expr string) ([]token, error) {
 		// Operators.
 		if ch == '=' || ch == '!' || ch == '<' || ch == '>' {
 			if i+1 < len(expr) && expr[i+1] == '=' {
-				tokens = append(tokens, token{tokOp, string(expr[i:i+2])})
+				tokens = append(tokens, token{tokOp, expr[i : i+2]})
 				i += 2
 			} else {
 				tokens = append(tokens, token{tokOp, string(ch)})

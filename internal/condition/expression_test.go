@@ -193,8 +193,8 @@ func TestEvaluate(t *testing.T) {
 func TestParse_Errors(t *testing.T) {
 	cases := []string{
 		`"unterminated`,
-		`amount 1000`,        // missing operator
-		``,                   // empty (will fail at comparison level)
+		`amount 1000`, // missing operator
+		``,            // empty (will fail at comparison level)
 	}
 	for _, expr := range cases {
 		t.Run(expr, func(t *testing.T) {
