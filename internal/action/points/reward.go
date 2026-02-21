@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"math"
-	"strings"
 
 	"github.com/gyaneshwarpardhi/ifttt/internal/action"
 	"github.com/gyaneshwarpardhi/ifttt/internal/condition"
@@ -55,7 +54,7 @@ func (r *RewardPointsAction) Execute(
 
 	pts = math.Round(pts*100) / 100 // round to 2 dp
 
-	msg := fmt.Sprintf("%s %.0f points to %s", strings.Title(op)+"ed", pts, evalCtx.Event.ActorID)
+	msg := fmt.Sprintf("%s %.0f points to %s", capitalize(op)+"ed", pts, evalCtx.Event.ActorID)
 	if reason != "" {
 		msg += " — " + reason
 	}
@@ -153,6 +152,13 @@ func resolveNumericOperand(op condition.Operand, ctx *dag.EvalContext) (float64,
 	default:
 		return 0, fmt.Errorf("unknown operand type %T", op)
 	}
+}
+
+func capitalize(s string) string {
+	if s == "" {
+		return s
+	}
+	return string(s[0]-32) + s[1:]
 }
 
 func toFloat64(v interface{}) (float64, bool) {
