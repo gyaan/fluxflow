@@ -201,10 +201,8 @@ func (p *parser) peek() token {
 	return p.tokens[p.pos]
 }
 
-func (p *parser) consume() token {
-	t := p.tokens[p.pos]
+func (p *parser) consume() {
 	p.pos++
-	return t
 }
 
 func (p *parser) expect(kind tokenKind, val string) error {
