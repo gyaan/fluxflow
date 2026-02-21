@@ -1,0 +1,60 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement! Please provide as much context as possible.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the engine does this relate to?
+      options:
+        - Expression language (new operator / syntax)
+        - Action system (new action type)
+        - DAG evaluation (traversal behaviour)
+        - Configuration (schema / hot-reload)
+        - HTTP API (new endpoint / response field)
+        - Concurrency / performance
+        - Observability (metrics / logging / tracing)
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What limitation or gap are you trying to address?
+      placeholder: "Currently, there is no way to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the feature you would like to see. Include example YAML, API requests, or code snippets where helpful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workarounds or alternative approaches did you consider?
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have searched existing issues and this has not been requested before.
+          required: true
+        - label: I am willing to submit a pull request for this feature.

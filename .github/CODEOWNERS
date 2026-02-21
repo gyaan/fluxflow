@@ -1,0 +1,14 @@
+# Global owner — review required on all changes
+* @gyaan
+
+# Core engine components — extra scrutiny
+/internal/condition/  @gyaan
+/internal/dag/        @gyaan
+/internal/engine/     @gyaan
+
+# Public API surface
+/internal/api/        @gyaan
+/cmd/                 @gyaan
+
+# CI / repo config
+/.github/             @gyaan

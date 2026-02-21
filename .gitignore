@@ -28,5 +28,12 @@ go.work.sum
 .env
 
 # Editor/IDE
- .idea/
- .vscode/
+.idea/
+.vscode/
+
+# Build output
+/bin/
+/dist/
+
+# Local config overrides
+configs/rules.local.yaml

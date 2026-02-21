@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Documentation
+    url: https://github.com/gyaan/fluxflow/blob/master/README.md
+    about: Start here — README covers setup, configuration, and the full API reference.
+  - name: Deep Dive
+    url: https://github.com/gyaan/fluxflow/blob/master/DEEPDIVE.md
+    about: Architecture and design decisions — read before opening a design question.
