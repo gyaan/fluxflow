@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/github/v/release/gyaan/fluxflow" alt="Latest release">
   </a>
   <a href="https://pkg.go.dev/github.com/gyaneshwarpardhi/ifttt">
-    <img src="https://img.shields.io/badge/go-1.22%2B-00ADD8?logo=go" alt="Go version">
+    <img src="https://img.shields.io/badge/go-1.23%2B-00ADD8?logo=go" alt="Go version">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/github/license/gyaan/fluxflow" alt="License: MIT">
